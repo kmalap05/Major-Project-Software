@@ -2,6 +2,7 @@ import React from 'react';
 import PhGauge from '../components/Gauges/PhGauge';
 import TdsGauge from '../components/Gauges/TdsGauge';
 import TurbidityGauge from '../components/Gauges/TurbidityGauge';
+import Prediction from '../components/Prediction/Prediction';
 
 const HomePage = () => {
   return (
@@ -12,6 +13,9 @@ const HomePage = () => {
             <PhGauge />
             <TdsGauge />
             <TurbidityGauge />
+          </div>
+          <div className="basis-2/3 w-full flex justify-center items-center">
+            <Prediction />
           </div>
         </div>
       </div>
