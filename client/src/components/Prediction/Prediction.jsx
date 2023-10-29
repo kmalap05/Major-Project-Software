@@ -76,7 +76,7 @@ const Prediction = () => {
   return (
     <React.Fragment>
       <div className="flex gap-5">
-        <div className="basis-1/2 p-10">
+        <div className="basis-1/2 flex items-center justify-center p-10">
           <img src={AnalysisImage} alt="" className="" />
         </div>
         <div className="basis-2/2 pl-28">

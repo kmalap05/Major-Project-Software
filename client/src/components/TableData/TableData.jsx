@@ -54,7 +54,7 @@ const TableData = () => {
     fetchDataFromAPIs();
 
     // Fetch data initially and then set up a refresh interval (every 15 seconds)
-    const refreshInterval = setInterval(fetchDataFromAPIs, 5000);
+    const refreshInterval = setInterval(fetchDataFromAPIs, 15000);
 
     return () => {
       clearInterval(refreshInterval);
@@ -62,7 +62,7 @@ const TableData = () => {
   }, []);
 
   // Define your table headers
-  const headers = ['Timestamp', 'PH Value', 'TDS Value', 'Turbidity Value'];
+  const headers = ['Time', 'PH Value', 'TDS Value', 'Turbidity Value'];
   const sortedData = [...data].sort((a, b) =>
     b.created_at.localeCompare(a.created_at)
   );
@@ -74,6 +74,16 @@ const TableData = () => {
     groups[date].push(item);
     return groups;
   }, {});
+
+  // Function to format time as HH:mm:ss
+  const formatLocalTime = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+  };
 
   return (
     <React.Fragment>
